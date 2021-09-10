@@ -1,0 +1,40 @@
+singleServerConfig:
+  #如果一段timeout时间未使用池化连接，并且当前连接量大于最小空闲连接池大小，则它将关闭并从池中删除。值（以毫秒为单位）。默认10000
+  idleConnectionTimeout: 10000
+  #连接到任何Redis服务器时超时。默认10000
+  connectTimeout: 10000
+  #Redis服务器响应超时。成功发送Redis命令后，开始倒数计时。值（以毫秒为单位）。默认3000
+  timeout: 3000
+  #超时重试次数，默认3次
+  retryAttempts: 3
+  #重试的时间间隔，默认1500毫秒
+  retryInterval: 1500
+  #密码，如果没有设置null或者不设置，默认为null
+#  password: null
+  #每个Redis连接限制的订阅，默认5
+  subscriptionsPerConnection: 5
+  #客户端连接名称，默认为null
+  clientName: null
+  #连接地址，一定要下面这种格式。默认本机的6379端口
+  address: "redis://127.0.0.1:6379"
+  #最小空闲Redis订阅连接数量。默认1
+  subscriptionConnectionMinimumIdleSize: 1
+  #Redis订阅连接最大池大小。默认50
+  subscriptionConnectionPoolSize: 50
+  #最小空闲Redis连接数。默认24
+  connectionMinimumIdleSize: 32
+  #Redis连接的最大池大小。默认64
+  connectionPoolSize: 1024
+  #DNS更改监视时间间隔。应用程序必须确保JVM DNS缓存TTL足够低以支持此功能。设置-1为禁用。代理模式支持单个主机名的多个IP绑定。默认5000
+  dnsMonitoringInterval: 5000
+# 这个线程池数量被所有RTopic对象监听器，RRemoteService调用者和RExecutorService任务共同共享。默认当前处理核数量 * 2
+threads: 16
+# 这个线程池数量是在一个Redisson实例内，被其创建的所有分布式数据类型和服务，以及底层客户端所一同共享的线程池里保存的线程数量。默认32
+nettyThreads: 64
+# 默认 org.redisson.codec.MarshallingCodec，部分编码需要引入编码对于依赖jar包。
+codec: !<org.redisson.codec.JsonJacksonCodec> {}
+# 传输模式，默认NIO，可选参数：
+# TransportMode.NIO,
+# TransportMode.EPOLL - 需要依赖里有netty-transport-native-epoll包（Linux）
+# TransportMode.KQUEUE - 需要依赖里有 netty-transport-native-kqueue包（macOS）
+transportMode: "NIO"

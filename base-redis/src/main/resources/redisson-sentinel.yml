@@ -1,0 +1,68 @@
+sentinelServersConfig:
+  #如果一段timeout时间未使用池化连接，并且当前连接量大于最小空闲连接池大小，则它将关闭并从池中删除。值（以毫秒为单位）。默认10000
+  idleConnectionTimeout: 10000
+  #连接到任何Redis服务器时超时。默认10000
+  connectTimeout: 10000
+  #Redis服务器响应超时。成功发送Redis命令后，开始倒数计时。值（以毫秒为单位）。默认3000
+  timeout: 3000
+  #超时重试次数，默认3次
+  retryAttempts: 3
+  #重试的时间间隔，默认1500毫秒
+  retryInterval: 1500
+  #从可用服务器的内部列表中排除的Redis Slave重新连接尝试间隔。在每个超时事件中，Redisson都会尝试连接到已断开连接的Redis服务器。值（以毫秒为单位）默认3000
+  failedSlaveReconnectionInterval: 3000
+  #当此服务器上第一次Redis命令执行失败的时间间隔达到定义的值时，将从可用节点的内部列表中排除无法执行命令的Redis从节点。值（以毫秒为单位）。默认60000
+  failedSlaveCheckInterval: 60000
+  #密码，如果没有设置null或者不设置，默认为null
+  #  password: null
+  #每个Redis连接限制的订阅
+  subscriptionsPerConnection: 5
+  #客户端名称。默认null
+#  clientName: null
+  # 在使用多个Redis服务节点的环境里，可以选用以下几种负载均衡方式选择一个节点：
+  # org.redisson.connection.balancer.WeightedRoundRobinBalancer - 权重轮询调度算法
+  # org.redisson.connection.balancer.RoundRobinLoadBalancer - 轮询调度算法
+  # org.redisson.connection.balancer.RandomLoadBalancer - 随机调度算法
+  # 默认：RoundRobinLoadBalancer
+  loadBalancer: !<org.redisson.connection.balancer.RoundRobinLoadBalancer> {}
+  # 长期保持一定数量的发布订阅连接是必须的。默认1
+  subscriptionConnectionMinimumIdleSize: 1
+  # 多从节点的环境里，每个从服务节点里用于发布和订阅连接的连接池最大容量。连接池的连接数量自动弹性伸缩。默认50
+  subscriptionConnectionPoolSize: 50
+  # 多从节点的环境里，每个从服务节点里用于普通操作（非 发布和订阅）的最小保持连接数（长连接）。
+  # 长期保持一定数量的连接有利于提高瞬时读取反映速度。默认32
+  slaveConnectionMinimumIdleSize: 32
+  # 多从节点的环境里，每个从服务节点里用于普通操作（非 发布和订阅）连接的连接池最大容量。连接池的连接数量自动弹性伸缩。默认64
+  slaveConnectionPoolSize: 512
+  # 多从节点的环境里，每个主节点的最小保持连接数（长连接）。长期保持一定数量的连接有利于提高瞬时写入反应速度。默认32
+  masterConnectionMinimumIdleSize: 32
+  # 多主节点的环境里，每个主节点的连接池最大容量。连接池的连接数量自动弹性伸缩。 默认64
+  masterConnectionPoolSize: 512
+  # 设置读取操作选择节点的模式。 可用值为：
+  # SLAVE - 只在从服务节点里读取。 默认
+  # MASTER - 只在主服务节点里读取。
+  # MASTER_SLAVE - 在主从服务节点里都可以读取。
+  readMode: "SLAVE"
+  # 设置订阅操作选择节点的模式。可用值为：
+  # SLAVE - 只在从服务节点里订阅。默认
+  # MASTER - 只在主服务节点里订阅。
+  subscriptionMode: "SLAVE"
+  #服务器地址，一定要按这种格式配置
+  sentinelAddresses:
+    - "redis://127.0.0.1:7001"
+    - "redis://127.0.0.1:7002"
+  #Redis Sentinel服务器和主更改监视任务使用的主服务器名称。
+#  masterName: "mymaster"
+# 这个线程池数量被所有RTopic对象监听器，RRemoteService调用者和RExecutorService任务共同共享。默认当前处理核数量 * 2
+threads: 16
+# 这个线程池数量是在一个Redisson实例内，被其创建的所有分布式数据类型和服务，以及底层客户端所一同共享的线程池里保存的线程数量。默认32
+nettyThreads: 64
+# Redisson的对象编码类是用于将对象进行序列化和反序列化，以实现对该对象在Redis里的读取和存储。
+# Redisson提供了多种的对象编码应用，以供大家选择：https://github.com/redisson/redisson/wiki/4.-data-serialization
+# 默认 org.redisson.codec.MarshallingCodec，部分编码需要引入编码对于依赖jar包。
+codec: !<org.redisson.codec.JsonJacksonCodec> {}
+# 传输模式，默认NIO，可选参数：
+# TransportMode.NIO,
+# TransportMode.EPOLL - 需要依赖里有netty-transport-native-epoll包（Linux）
+# TransportMode.KQUEUE - 需要依赖里有 netty-transport-native-kqueue包（macOS）
+transportMode: "NIO"
