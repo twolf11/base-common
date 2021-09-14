@@ -46,7 +46,7 @@
         <lombok.version>1.18.18</lombok.version>
         <swagger.version>3.0.0</swagger.version>
         <redisson.version>3.15.4</redisson.version>
-        <common-beanutil.version>1.9.1</common-beanutil.version>
+        <common-beanutil.version>1.9.4</common-beanutil.version>
     </properties>
 
 
