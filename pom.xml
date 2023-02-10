@@ -4,22 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-
-    <groupId>com.lcy.base</groupId>
-    <artifactId>base-parent</artifactId>
+    <groupId>com.lcy.common</groupId>
+    <artifactId>base-common</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
     <modules>
-        <module>base-common</module>
-        <module>base-orm</module>
-        <module>base-redis</module>
-        <module>base-rocketMQ</module>
+        <module>common-core</module>
+        <module>common-orm</module>
+        <module>common-redis</module>
     </modules>
+
 
     <properties>
         <!-- JDK版本 -->
         <!-- 自定义的参数 -->
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
         <!-- 编码格式utf-8 -->
         <encoding>utf-8</encoding>
         <!-- maven内置的参数 -->
@@ -34,50 +33,66 @@
         <project.reptorting.outputEncording>${encoding}</project.reptorting.outputEncording>
         <argLine>-Dfile.encording=${encoding}</argLine>
         <!-- springboot和cloud依赖 -->
-        <!--        <cloud.version>2020.0.2</cloud.version>-->
-        <!--        <boot.version>2.4.4</boot.version>-->
-        <boot.version>2.3.3.RELEASE</boot.version>
-        <cloud.version>Hoxton.SR8</cloud.version>
+        <boot.version>2.6.3</boot.version>
+        <cloud.version>2021.0.5</cloud.version>
+        <alibaba.cloud.version>2021.0.4.0</alibaba.cloud.version>
         <rocketmq.version>4.8.0</rocketmq.version>
-        <commons-lang3.version>3.9</commons-lang3.version>
-        <commons.codec.version>1.15</commons.codec.version>
+        <hutool.version>5.7.19</hutool.version>
+        <jsch.version>0.1.55</jsch.version>
         <mysql-conncetor.version>8.0.16</mysql-conncetor.version>
         <druid.version>1.1.22</druid.version>
-        <mybatis-plus.version>3.4.1</mybatis-plus.version>
-        <lombok.version>1.18.18</lombok.version>
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.5.1</mybatis-plus-generator.version>
+        <lombok.version>1.18.20</lombok.version>
+        <springdoc-openapi.version>1.6.3</springdoc-openapi.version>
         <swagger.version>3.0.0</swagger.version>
+        <knife4j.version>3.0.3</knife4j.version>
         <redisson.version>3.15.4</redisson.version>
-        <common-beanutil.version>1.9.4</common-beanutil.version>
+        <okhttp.version>4.9.1</okhttp.version>
+        <fastjson.version>1.2.78</fastjson.version>
+        <freemarker.version>2.3.31</freemarker.version>
+        <velocity-engine-core.version>2.3</velocity-engine-core.version>
+        <transmittable.version>2.12.4</transmittable.version>
     </properties>
 
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>base-common</artifactId>
-                <version>${project.version}</version>
+                <groupId>com.lcy.common</groupId>
+                <artifactId>common-core</artifactId>
+                <version>1.0.0</version>
             </dependency>
             <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>base-redis</artifactId>
-                <version>${project.version}</version>
+                <groupId>com.lcy.common</groupId>
+                <artifactId>common-redis</artifactId>
+                <version>1.0.0</version>
             </dependency>
             <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>base-orm</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>base-rocketMQ</artifactId>
-                <version>${project.version}</version>
+                <groupId>com.lcy.common</groupId>
+                <artifactId>common-orm</artifactId>
+                <version>1.0.0</version>
             </dependency>
             <!--spring boot依赖包-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
                 <version>${boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${alibaba.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -91,24 +106,36 @@
                 <version>${mysql-conncetor.version}</version>
             </dependency>
             <!-- orm框架依赖 start -->
-            <!--druid依赖 -->
-<!--            <dependency>-->
-<!--                <groupId>com.alibaba</groupId>-->
-<!--                <artifactId>druid-spring-boot-starter</artifactId>-->
-<!--                <version>${druid.version}</version>-->
-<!--            </dependency>-->
             <!-- mybatis-plus -->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
-            <!--            <dependency>-->
-            <!--                <groupId>com.baomidou</groupId>-->
-            <!--                <artifactId>mybatis-plus-extension</artifactId>-->
-            <!--                <version>${mybatis-plus.version}</version>-->
-            <!--            </dependency>-->
-            <!-- orm框架依赖 end -->
+            <!-- mybatis plus 代码生成器依赖 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-generator.version}</version>
+            </dependency>
+            <!-- 旧版代码生成器依赖 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!-- 代码生成器模板 -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity-engine-core.version}</version>
+            </dependency>
             <!--数据库依赖 end-->
 
             <!--            redisson依赖-->
@@ -132,26 +159,31 @@
             </dependency>
             <!--消息队列MQ依赖 end-->
 
-            <!-- apache-common依赖 start-->
-            <!-- apache-commons工具依赖包 -->
+            <!-- common依赖 start-->
             <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
             <dependency>
-                <groupId>commons-beanutils</groupId>
-                <artifactId>commons-beanutils</artifactId>
-                <version>${common-beanutil.version}</version>
+                <groupId>com.jcraft</groupId>
+                <artifactId>jsch</artifactId>
+                <version>${jsch.version}</version>
             </dependency>
-            <dependency>
-                <groupId>commons-codec</groupId>
-                <artifactId>commons-codec</artifactId>
-                <version>${commons.codec.version}</version>
-            </dependency>
-            <!-- apache-common依赖 end-->
+            <!-- common依赖 end-->
 
             <!-- util工具包/组件依赖 start-->
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
             <!--lombok依赖-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -159,15 +191,35 @@
                 <version>${lombok.version}</version>
             </dependency>
             <!-- util工具包/组件依赖 end-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable.version}</version>
+            </dependency>
 
             <!-- swagger依赖 start-->
             <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-boot-starter</artifactId>
-                <version>${swagger.version}</version>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi</artifactId>
+                <version>${springdoc-openapi.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-springdoc-ui</artifactId>
+                <version>${knife4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <name>nexus releases</name>
+            <url>http://192.168.1.31:30002/repository/my-maven/</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>
@@ -175,12 +227,23 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${boot.version}</version>
-                <configuration>
-                    <fork>true</fork>
-                    <addResources>true</addResources>
-                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
+
 
 </project>
