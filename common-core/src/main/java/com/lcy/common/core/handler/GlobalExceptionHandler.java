@@ -1,22 +1,22 @@
 package com.lcy.common.core.handler;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.ConstraintViolationException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.lcy.common.core.common.response.Result;
 import com.lcy.common.core.exception.BusinessException;
 import com.lcy.common.core.exception.ServiceException;
-import com.lcy.common.core.web.entity.domain.Result;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolationException;
 
 /**
- * @Description 异常捕获
+ * 异常捕获
  * @Author lcy
  * @Date 2020/12/7 14:18
  */
@@ -39,7 +39,7 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * 自定义业务异常
+     * 自定义服务异常
      * @param request           请求对象
      * @param businessException 异常信息
      * @author lcy
@@ -47,7 +47,7 @@ public class GlobalExceptionHandler {
      **/
     @ExceptionHandler({BusinessException.class})
     public Result<Object> businessException(HttpServletRequest request,BusinessException businessException){
-        log.error("businessException requestURI:{},message:{} ",request.getRequestURI(),businessException.getMessage());
+        log.error("BusinessException requestURI:{},message:{} ",request.getRequestURI(),businessException.getMessage());
         return Result.create(businessException.getCode(),businessException.getMessage());
     }
 
@@ -59,7 +59,7 @@ public class GlobalExceptionHandler {
      * @date 2019/10/26 9:44
      **/
     @ExceptionHandler({ServiceException.class})
-    @ResponseStatus()
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String serviceException(HttpServletRequest request,ServiceException serviceException){
         log.error("ServiceException requestURI:{},message:{} ",request.getRequestURI(),serviceException.getMessage());
         return serviceException.getMessage();
@@ -83,7 +83,7 @@ public class GlobalExceptionHandler {
                 .forEach(fieldError -> stringBuilder.append(fieldError.getDefaultMessage()).append(","));
 
         //如果有错误提示，去除最后的逗号。
-        if (stringBuilder.length() > 0) {
+        if (!stringBuilder.isEmpty()) {
             stringBuilder.setLength(stringBuilder.length() - 1);
         } else {
             stringBuilder.append("传入参数异常！");

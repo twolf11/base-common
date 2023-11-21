@@ -5,21 +5,21 @@
     <parent>
         <artifactId>base-common</artifactId>
         <groupId>com.lcy.common</groupId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <name>common缓存模块</name>
     <artifactId>common-redis</artifactId>
 
     <dependencies>
+        <!--json依赖-->
         <dependency>
-            <groupId>com.lcy.common</groupId>
-            <artifactId>common-core</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-json</artifactId>
         </dependency>
-
         <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson-spring-boot-starter</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
     </dependencies>
 

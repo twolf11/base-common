@@ -1,0 +1,13 @@
+com\lcy\common\orm\generator\GeneratorApplication$GenerateInfo$GenerateInfoBuilder.class
+com\lcy\common\orm\mapper\BatchBaseMapper.class
+com\lcy\common\orm\service\BaseService.class
+com\lcy\common\orm\service\impl\BaseServiceImpl.class
+com\lcy\common\orm\config\MybatisPlusConfiguration.class
+com\lcy\common\orm\handler\CustomizedSqlInjector.class
+com\lcy\common\orm\handler\BaseObjectHandler.class
+com\lcy\common\orm\model\domain\BaseLockDo.class
+com\lcy\common\orm\generator\GeneratorApplication$GenerateInfo.class
+com\lcy\common\orm\generator\GeneratorApplication.class
+com\lcy\common\orm\model\domain\BaseDo.class
+com\lcy\common\orm\handler\InsertBatchMethod.class
+com\lcy\common\orm\handler\UpdateBatchMethod.class

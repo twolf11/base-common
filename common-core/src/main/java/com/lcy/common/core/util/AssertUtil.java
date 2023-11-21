@@ -3,14 +3,11 @@ package com.lcy.common.core.util;
 import java.util.Collection;
 import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.util.CollectionUtils;
-
+import com.lcy.common.core.common.response.ResultCode;
 import com.lcy.common.core.exception.BusinessException;
-import com.lcy.common.core.web.entity.domain.ResultCode;
 
 /**
- * @Description 断言工具，抛出BusinessException
+ * 断言工具，抛出BusinessException
  * @Author lcy
  * @Date 2020/12/7 15:58
  */
@@ -47,7 +44,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static void isEmpty(String str,String message){
-        if (StringUtils.isBlank(str)) {
+        if (Tools.isEmpty(str)) {
             throw new BusinessException(message);
         }
     }
@@ -60,7 +57,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <T> void isEmpty(T t,String message){
-        if (t == null) {
+        if (Tools.isEmpty(t)) {
             throw new BusinessException(message);
         }
     }
@@ -73,7 +70,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <T> void isEmpty(T[] t,String message){
-        if (t == null || t.length == 0) {
+        if (Tools.isEmpty(t)) {
             throw new BusinessException(message);
         }
     }
@@ -86,7 +83,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <K,V> void isEmpty(Map<K,V> map,String message){
-        if (CollectionUtils.isEmpty(map)) {
+        if (Tools.isEmpty(map)) {
             throw new BusinessException(message);
         }
     }
@@ -99,7 +96,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <T> void isEmpty(Collection<T> collection,String message){
-        if (CollectionUtils.isEmpty(collection)) {
+        if (Tools.isEmpty(collection)) {
             throw new BusinessException(message);
         }
     }
@@ -112,7 +109,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static void isNotEmpty(String str,String message){
-        if (StringUtils.isNotBlank(str)) {
+        if (Tools.isNotEmpty(str)) {
             throw new BusinessException(message);
         }
     }
@@ -125,7 +122,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <T> void isNotEmpty(T t,String message){
-        if (t != null) {
+        if (Tools.isNotEmpty(t)) {
             throw new BusinessException(message);
         }
     }
@@ -138,7 +135,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <T> void isNotEmpty(T[] t,String message){
-        if (t != null) {
+        if (Tools.isNotEmpty(t)) {
             throw new BusinessException(message);
         }
     }
@@ -151,7 +148,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <K,V> void isNotEmpty(Map<K,V> map,String message){
-        if (!CollectionUtils.isEmpty(map)) {
+        if (Tools.isNotEmpty(map)) {
             throw new BusinessException(message);
         }
     }
@@ -164,7 +161,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <T> void isNotEmpty(Collection<T> collection,String message){
-        if (!CollectionUtils.isEmpty(collection)) {
+        if (Tools.isNotEmpty(collection)) {
             throw new BusinessException(message);
         }
     }
@@ -190,7 +187,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static void isEmpty(String str,ResultCode resultCode){
-        if (StringUtils.isBlank(str)) {
+        if (Tools.isEmpty(str)) {
             throw new BusinessException(resultCode);
         }
     }
@@ -203,7 +200,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <T> void isEmpty(T t,ResultCode resultCode){
-        if (t == null) {
+        if (Tools.isEmpty(t)) {
             throw new BusinessException(resultCode);
         }
     }
@@ -216,7 +213,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <T> void isEmpty(T[] t,ResultCode resultCode){
-        if (t == null || t.length == 0) {
+        if (Tools.isEmpty(t)) {
             throw new BusinessException(resultCode);
         }
     }
@@ -229,7 +226,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <K,V> void isEmpty(Map<K,V> map,ResultCode resultCode){
-        if (CollectionUtils.isEmpty(map)) {
+        if (Tools.isEmpty(map)) {
             throw new BusinessException(resultCode);
         }
     }
@@ -242,7 +239,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <T> void isEmpty(Collection<T> collection,ResultCode resultCode){
-        if (CollectionUtils.isEmpty(collection)) {
+        if (Tools.isEmpty(collection)) {
             throw new BusinessException(resultCode);
         }
     }
@@ -255,7 +252,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static void isNotEmpty(String str,ResultCode resultCode){
-        if (StringUtils.isNotBlank(str)) {
+        if (Tools.isNotEmpty(str)) {
             throw new BusinessException(resultCode);
         }
     }
@@ -268,7 +265,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <T> void isNotEmpty(T t,ResultCode resultCode){
-        if (t != null) {
+        if (Tools.isNotEmpty(t)) {
             throw new BusinessException(resultCode);
         }
     }
@@ -281,7 +278,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <T> void isNotEmpty(T[] t,ResultCode resultCode){
-        if (t != null) {
+        if (Tools.isNotEmpty(t)) {
             throw new BusinessException(resultCode);
         }
     }
@@ -294,7 +291,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <K,V> void isNotEmpty(Map<K,V> map,ResultCode resultCode){
-        if (!CollectionUtils.isEmpty(map)) {
+        if (Tools.isNotEmpty(map)) {
             throw new BusinessException(resultCode);
         }
     }
@@ -307,7 +304,7 @@ public class AssertUtil {
      * @date 2020/12/7 16:03
      **/
     public static <T> void isNotEmpty(Collection<T> collection,ResultCode resultCode){
-        if (!CollectionUtils.isEmpty(collection)) {
+        if (Tools.isNotEmpty(collection)) {
             throw new BusinessException(resultCode);
         }
     }

@@ -1,23 +1,18 @@
 package com.lcy.common.core.util;
 
-import javax.servlet.http.HttpServletRequest;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Objects;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
 
 /**
- * @Description 工具类
+ * 工具类
  * @Author lcy
  * @Date 2021/1/12 15:29
  */
 public class Tools {
-
-    private static final Logger log = LoggerFactory.getLogger(Tools.class);
 
     /**
      * 判断字符串是否为空
@@ -27,16 +22,7 @@ public class Tools {
      * @date 2021/1/12 16:03
      **/
     public static boolean isEmpty(CharSequence cs){
-        int strLen;
-        if (cs == null || (strLen = cs.length()) == 0) {
-            return true;
-        }
-        for (int i = 0; i < strLen; i++) {
-            if (!Character.isWhitespace(cs.charAt(i))) {
-                return false;
-            }
-        }
-        return true;
+        return StrUtil.isBlank(cs);
     }
 
     /**
@@ -46,13 +32,8 @@ public class Tools {
      * @author lcy
      * @date 2021/1/12 16:03
      **/
-    public static boolean isEmpty(CharSequence... charSequences){
-        for (CharSequence cs : charSequences) {
-            if (isNotEmpty(cs)) {
-                return false;
-            }
-        }
-        return true;
+    public static boolean hasEmpty(CharSequence... charSequences){
+        return StrUtil.hasEmpty(charSequences);
     }
 
     /**
@@ -63,7 +44,7 @@ public class Tools {
      * @date 2021/1/12 16:03
      **/
     public static <T> boolean isEmpty(T object){
-        return object == null;
+        return ObjectUtil.isEmpty(object);
     }
 
     /**
@@ -111,22 +92,6 @@ public class Tools {
     }
 
     /**
-     * 判断多个字符串是否不为空
-     * @param charSequences 字符串数组
-     * @return boolean
-     * @author lcy
-     * @date 2021/1/12 16:03
-     **/
-    public static boolean isNotEmpty(CharSequence... charSequences){
-        for (CharSequence cs : charSequences) {
-            if (isEmpty(cs)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    /**
      * 判断对象是否不为空
      * @param object 对象
      * @return boolean
@@ -134,7 +99,7 @@ public class Tools {
      * @date 2021/1/12 16:03
      **/
     public static <T> boolean isNotEmpty(T object){
-        return object != null;
+        return !isEmpty(object);
     }
 
     /**
@@ -285,44 +250,6 @@ public class Tools {
             }
         }
         return outBuffer.toString();
-    }
-
-    /**
-     * 获取当前网络ip
-     * @param request request
-     * @return java.lang.String
-     * @author lcy
-     * @date 2022/1/7 15:06
-     **/
-    public static String getRequestHost(HttpServletRequest request){
-        String ipAddress = request.getHeader("x-forwarded-for");
-        if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
-            ipAddress = request.getHeader("Proxy-Client-IP");
-        }
-        if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
-            ipAddress = request.getHeader("WL-Proxy-Client-IP");
-        }
-        if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
-            ipAddress = request.getRemoteAddr();
-            if ("127.0.0.1".equals(ipAddress) || "0:0:0:0:0:0:0:1".equals(ipAddress)) {
-                //根据网卡取本机配置的IP
-                InetAddress inet = null;
-                try {
-                    inet = InetAddress.getLocalHost();
-                } catch (UnknownHostException e) {
-                    log.error("get request host error. ",e);
-                }
-                ipAddress = inet.getHostAddress();
-            }
-        }
-        //对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割
-        //"***.***.***.***".length() = 15
-        if (ipAddress != null && ipAddress.length() > 15) {
-            if (ipAddress.indexOf(",") > 0) {
-                ipAddress = ipAddress.substring(0,ipAddress.indexOf(","));
-            }
-        }
-        return ipAddress;
     }
 
 }

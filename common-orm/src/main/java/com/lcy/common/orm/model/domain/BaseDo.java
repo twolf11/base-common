@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 /**
- * @Description 数据库基本字段
+ * 数据库基本字段
  * @Author lcy
  * @Date 2021/4/13 17:59
  */
@@ -19,7 +19,7 @@ public class BaseDo<T extends Model<?>> extends Model<T> {
      */
     @TableField(fill = FieldFill.INSERT)
     @TableLogic
-    protected Integer delFlag;
+    protected Integer isDelete;
 
     /**
      * 创建人
@@ -48,20 +48,20 @@ public class BaseDo<T extends Model<?>> extends Model<T> {
     public BaseDo(){
     }
 
-    public BaseDo(Integer delFlag,String createBy,LocalDateTime createTime,String updateBy,LocalDateTime updateTime){
-        this.delFlag = delFlag;
+    public BaseDo(Integer isDelete,String createBy,LocalDateTime createTime,String updateBy,LocalDateTime updateTime){
+        this.isDelete = isDelete;
         this.createBy = createBy;
         this.createTime = createTime;
         this.updateBy = updateBy;
         this.updateTime = updateTime;
     }
 
-    public Integer getDelFlag(){
-        return delFlag;
+    public Integer getIsDelete(){
+        return isDelete;
     }
 
-    public BaseDo<T> setDelFlag(Integer delFlag){
-        this.delFlag = delFlag;
+    public BaseDo<T> setIsDelete(Integer isDelete){
+        this.isDelete = isDelete;
         return this;
     }
 
@@ -103,7 +103,7 @@ public class BaseDo<T extends Model<?>> extends Model<T> {
 
     @Override public String toString(){
         return "BaseDo{" +
-                "delFlag=" + delFlag +
+                "isDelete=" + isDelete +
                 ", createBy='" + createBy + '\'' +
                 ", createTime=" + createTime +
                 ", updateBy='" + updateBy + '\'' +

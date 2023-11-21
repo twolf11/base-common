@@ -1,9 +1,9 @@
 package com.lcy.common.core.exception;
 
-import com.lcy.common.core.web.entity.domain.ResultCode;
+import com.lcy.common.core.common.response.ResultCode;
 
 /**
- * @Description 自定义服务异常
+ * 自定义异常-http状态500
  * @Author lcy
  * @Date 2020/12/7 14:20
  */

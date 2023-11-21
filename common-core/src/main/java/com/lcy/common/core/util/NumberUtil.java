@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 /**
- * @Description 数字工具类-包含金额等等
+ * 数字工具类-包含金额等等
  * @Author lcy
  * @Date 2021/4/20 14:11
  */

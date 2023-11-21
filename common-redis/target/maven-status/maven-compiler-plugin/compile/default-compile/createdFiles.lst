@@ -1,0 +1,2 @@
+com\lcy\common\redis\config\RedisConfig.class
+com\lcy\common\redis\service\RedisService.class

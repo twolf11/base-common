@@ -1,7 +1,7 @@
 package com.lcy.common.core.constant;
 
 /**
- * @Description 常量
+ * 常量
  * @Author lcy
  * @Date 2022/3/1 14:36
  */

@@ -6,11 +6,9 @@ import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import com.lcy.common.core.util.Tools;
-import com.lcy.common.core.web.entity.common.Context;
 
 /**
- * @Description 公共数据切面
+ * 公共数据切面--这里只做参考，实际情况需要自行定义或者手动注入
  * @Author lcy
  * @Date 2021/5/14 14:14
  */
@@ -40,7 +38,7 @@ public class BaseObjectHandler implements MetaObjectHandler {
     /**
      * 删除标记
      */
-    private static final String DEL_FLAG = "delFlag";
+    private static final String IS_DELETE = "is_delete";
 
     /**
      * 版本号
@@ -54,20 +52,20 @@ public class BaseObjectHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject){
         //3.3.3以后的版本使用strictInsertFill，之前使用setFieldValByName
         //实际项目通过jwt获取
-        this.strictInsertFill(metaObject, CREATE_USER,()->Tools.isEmpty(Context.getTokenContext()) ? null : Context.getTokenContext().getUserCode(), String.class);
+        this.strictInsertFill(metaObject,CREATE_USER,() -> null,String.class);
         // 创建时间
-        this.strictInsertFill(metaObject, CREATE_TIME,LocalDateTime :: now, LocalDateTime.class);
+        this.strictInsertFill(metaObject,CREATE_TIME,LocalDateTime :: now,LocalDateTime.class);
         // 删除标记
-        this.strictInsertFill(metaObject, DEL_FLAG, () -> 0, Integer.class);
+        this.strictInsertFill(metaObject,IS_DELETE,() -> 0,Integer.class);
         // 版本号
-        this.strictInsertFill(metaObject, VERSION, () -> 0L, Long.class);
+        this.strictInsertFill(metaObject,VERSION,() -> 0L,Long.class);
     }
 
     @Override
     public void updateFill(MetaObject metaObject){
         //实际项目通过jwt获取
-        this.strictUpdateFill(metaObject, UPDATE_USER, ()->Tools.isEmpty(Context.getTokenContext()) ? null : Context.getTokenContext().getUserCode(), String.class);
+        this.strictUpdateFill(metaObject,UPDATE_USER,() -> null,String.class);
         // 创建时间
-        this.strictUpdateFill(metaObject, UPDATE_TIME, LocalDateTime :: now, LocalDateTime.class);
+        this.strictUpdateFill(metaObject,UPDATE_TIME,LocalDateTime :: now,LocalDateTime.class);
     }
 }

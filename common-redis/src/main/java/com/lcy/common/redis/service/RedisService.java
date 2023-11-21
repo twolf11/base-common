@@ -16,7 +16,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
 /**
- * @Description redis工具类
+ * redis工具类
  * @Author lcy
  * @Date 2021/4/12 18:07
  */

@@ -18,7 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @Description 文件工具类
+ * 文件工具类
  * @Author lcy
  * @Date 2021/4/25 15:13
  */
@@ -27,7 +27,7 @@ public class FileUtil {
     private static final Logger log = LoggerFactory.getLogger(FileUtil.class);
 
     /**
-     * @Description 获取字符的接口
+     * 获取字符的接口
      * @Author lcy
      * @Date 2021/4/25 15:13
      */

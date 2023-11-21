@@ -1,6 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.lcy.common.core.config.CorsFilterConfig,com.lcy.common.core.config.SpringDocConfig\
-  ,com.lcy.common.core.util.SpringUtils,com.lcy.common.core.config.JsonConfig
-
-
-  

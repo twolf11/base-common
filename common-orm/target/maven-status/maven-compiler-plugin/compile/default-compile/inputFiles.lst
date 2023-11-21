@@ -1,0 +1,11 @@
+D:\workspace\base-common\common-orm\src\main\java\com\lcy\common\orm\service\BaseService.java
+D:\workspace\base-common\common-orm\src\main\java\com\lcy\common\orm\model\domain\BaseDo.java
+D:\workspace\base-common\common-orm\src\main\java\com\lcy\common\orm\handler\UpdateBatchMethod.java
+D:\workspace\base-common\common-orm\src\main\java\com\lcy\common\orm\model\domain\BaseLockDo.java
+D:\workspace\base-common\common-orm\src\main\java\com\lcy\common\orm\handler\InsertBatchMethod.java
+D:\workspace\base-common\common-orm\src\main\java\com\lcy\common\orm\config\MybatisPlusConfiguration.java
+D:\workspace\base-common\common-orm\src\main\java\com\lcy\common\orm\mapper\BatchBaseMapper.java
+D:\workspace\base-common\common-orm\src\main\java\com\lcy\common\orm\handler\BaseObjectHandler.java
+D:\workspace\base-common\common-orm\src\main\java\com\lcy\common\orm\generator\GeneratorApplication.java
+D:\workspace\base-common\common-orm\src\main\java\com\lcy\common\orm\service\impl\BaseServiceImpl.java
+D:\workspace\base-common\common-orm\src\main\java\com\lcy\common\orm\handler\CustomizedSqlInjector.java
