@@ -1,2 +1,2 @@
-com.lcy.common.redis.config.RedisConfig
-com.lcy.common.redis.service.RedisService
+com.twolf.common.redis.config.RedisConfig
+com.twolf.common.redis.service.RedisService

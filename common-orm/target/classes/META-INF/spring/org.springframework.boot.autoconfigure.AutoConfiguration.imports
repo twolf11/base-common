@@ -1,2 +1,1 @@
-com.lcy.common.orm.config.MybatisPlusConfiguration
-com.lcy.common.orm.handler.BaseObjectHandler
+com.twolf.common.orm.config.MybatisPlusConfiguration

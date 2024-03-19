@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.lcy.common</groupId>
+    <groupId>com.twolf.common</groupId>
     <artifactId>base-common</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <modules>
         <module>common-core</module>
         <module>common-orm</module>
@@ -17,7 +17,7 @@
     <description>base project</description>
 
     <properties>
-        <revision>1.0.1</revision>
+        <revision>1.0.2</revision>
         <!-- JDK版本 -->
         <!-- 自定义的参数 -->
         <java.version>17</java.version>
@@ -36,26 +36,27 @@
         <project.reptorting.outputEncording>${encoding}</project.reptorting.outputEncording>
         <argLine>-Dfile.encording=${encoding}</argLine>
         <!-- springboot和cloud依赖 -->
-        <boot.version>3.1.3</boot.version>
-        <cloud.version>2022.0.4</cloud.version>
+        <boot.version>3.2.0</boot.version>
+        <cloud.version>2023.0.0</cloud.version>
         <alibaba.cloud.version>2022.0.0.0</alibaba.cloud.version>
+        <graceful-response.version>3.5.2-boot3</graceful-response.version>
     </properties>
 
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.lcy.common</groupId>
+                <groupId>com.twolf.common</groupId>
                 <artifactId>common-core</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>com.lcy.common</groupId>
+                <groupId>com.twolf.common</groupId>
                 <artifactId>common-redis</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>com.lcy.common</groupId>
+                <groupId>com.twolf.common</groupId>
                 <artifactId>common-orm</artifactId>
                 <version>${revision}</version>
             </dependency>
@@ -81,6 +82,11 @@
                 <version>${alibaba.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.feiniaojin</groupId>
+                <artifactId>graceful-response</artifactId>
+                <version>${graceful-response.version}</version>
             </dependency>
             <!-- 父依赖包 end -->
         </dependencies>

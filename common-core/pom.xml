@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>base-common</artifactId>
-        <groupId>com.lcy.common</groupId>
-        <version>1.0.1</version>
+        <groupId>com.twolf.common</groupId>
+        <version>1.0.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -20,19 +20,14 @@
     </properties>
 
     <dependencies>
-        <!-- springboot关联依赖 start -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <!--json依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-json</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <groupId>com.feiniaojin</groupId>
+            <artifactId>graceful-response</artifactId>
         </dependency>
         <!-- commons工具依赖包 -->
         <dependency>
