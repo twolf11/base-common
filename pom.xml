@@ -107,19 +107,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <distributionManagement>
-        <repository>
-            <id>nexus-release</id>
-            <name>nexus releases</name>
-            <url>http://storehouse.twolf.com:8081/repository/my-release/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <name>nexus snapshots</name>
-            <url>http://storehouse.twolf.com:8081/repository/my-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <build>
         <plugins>
             <!--发布源码插件-->
