@@ -7,7 +7,7 @@
     <groupId>com.twolf.common</groupId>
     <artifactId>base-common</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.4-gf</version>
+    <version>1.0.4-gr</version>
     <modules>
         <module>common-core</module>
         <module>common-orm</module>
@@ -17,7 +17,7 @@
     <description>base project</description>
 
     <properties>
-        <revision>1.0.4-gf</revision>
+        <revision>1.0.4-gr</revision>
         <!-- JDK版本 -->
         <!-- 自定义的参数 -->
         <java.version>17</java.version>
