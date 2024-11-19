@@ -1,1 +1,2 @@
 com.twolf.common.orm.config.MybatisPlusConfiguration
+com.twolf.common.orm.config.AesConfig

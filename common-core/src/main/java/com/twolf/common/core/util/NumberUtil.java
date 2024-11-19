@@ -7,7 +7,7 @@ import java.text.NumberFormat;
 
 /**
  * 数字工具类-包含金额等等
- * @Author lcy
+ * @Author twolf
  * @Date 2021/4/20 14:11
  */
 public class NumberUtil {
@@ -26,55 +26,55 @@ public class NumberUtil {
      * 金额格式化 丢弃小数点后两位值
      * @param amount 金额
      * @return java.math.BigDecimal
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:24
      **/
-    public static BigDecimal amountFormat(int amount){
-        return new BigDecimal(String.valueOf(amount)).setScale(2,RoundingMode.DOWN);
+    public static BigDecimal amountFormat(int amount) {
+        return new BigDecimal(String.valueOf(amount)).setScale(2, RoundingMode.DOWN);
     }
 
     /**
      * 金额格式化 丢弃小数点后两位值
      * @param amount 金额
      * @return java.math.BigDecimal
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:24
      **/
-    public static BigDecimal amountFormat(long amount){
-        return new BigDecimal(String.valueOf(amount)).setScale(2,RoundingMode.DOWN);
+    public static BigDecimal amountFormat(long amount) {
+        return new BigDecimal(String.valueOf(amount)).setScale(2, RoundingMode.DOWN);
     }
 
     /**
      * 金额格式化 丢弃小数点后两位值
      * @param amount 金额
      * @return java.math.BigDecimal
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:24
      **/
-    public static BigDecimal amountFormat(float amount){
-        return new BigDecimal(String.valueOf(amount)).setScale(2,RoundingMode.DOWN);
+    public static BigDecimal amountFormat(float amount) {
+        return new BigDecimal(String.valueOf(amount)).setScale(2, RoundingMode.DOWN);
     }
 
     /**
      * 金额格式化 丢弃小数点后两位值
      * @param amount 金额
      * @return java.math.BigDecimal
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:24
      **/
-    public static BigDecimal amountFormat(double amount){
-        return new BigDecimal(String.valueOf(amount)).setScale(2,RoundingMode.DOWN);
+    public static BigDecimal amountFormat(double amount) {
+        return new BigDecimal(String.valueOf(amount)).setScale(2, RoundingMode.DOWN);
     }
 
     /**
      * 金额格式化 丢弃小数点后两位值
      * @param amount 金额
      * @return java.math.BigDecimal
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:24
      **/
-    public static BigDecimal amountFormat(String amount){
-        return new BigDecimal(String.valueOf(amount)).setScale(2,RoundingMode.DOWN);
+    public static BigDecimal amountFormat(String amount) {
+        return new BigDecimal(String.valueOf(amount)).setScale(2, RoundingMode.DOWN);
     }
 
     /**
@@ -95,11 +95,11 @@ public class NumberUtil {
      * @param scale        小数保留位数
      * @param roundingMode 舍位模式
      * @return java.math.BigDecimal
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:33
      **/
-    public static BigDecimal amountFormat(int amount,int scale,RoundingMode roundingMode){
-        return new BigDecimal(String.valueOf(amount)).setScale(scale,roundingMode);
+    public static BigDecimal amountFormat(int amount, int scale, RoundingMode roundingMode) {
+        return new BigDecimal(String.valueOf(amount)).setScale(scale, roundingMode);
     }
 
     /**
@@ -108,11 +108,11 @@ public class NumberUtil {
      * @param scale        小数保留位数
      * @param roundingMode 舍位模式
      * @return java.math.BigDecimal
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:33
      **/
-    public static BigDecimal amountFormat(long amount,int scale,RoundingMode roundingMode){
-        return new BigDecimal(String.valueOf(amount)).setScale(scale,roundingMode);
+    public static BigDecimal amountFormat(long amount, int scale, RoundingMode roundingMode) {
+        return new BigDecimal(String.valueOf(amount)).setScale(scale, roundingMode);
     }
 
     /**
@@ -121,11 +121,11 @@ public class NumberUtil {
      * @param scale        小数保留位数
      * @param roundingMode 舍位模式
      * @return java.math.BigDecimal
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:33
      **/
-    public static BigDecimal amountFormat(float amount,int scale,RoundingMode roundingMode){
-        return new BigDecimal(String.valueOf(amount)).setScale(scale,roundingMode);
+    public static BigDecimal amountFormat(float amount, int scale, RoundingMode roundingMode) {
+        return new BigDecimal(String.valueOf(amount)).setScale(scale, roundingMode);
     }
 
     /**
@@ -134,11 +134,11 @@ public class NumberUtil {
      * @param scale        小数保留位数
      * @param roundingMode 舍位模式
      * @return java.math.BigDecimal
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:33
      **/
-    public static BigDecimal amountFormat(double amount,int scale,RoundingMode roundingMode){
-        return new BigDecimal(String.valueOf(amount)).setScale(scale,roundingMode);
+    public static BigDecimal amountFormat(double amount, int scale, RoundingMode roundingMode) {
+        return new BigDecimal(String.valueOf(amount)).setScale(scale, roundingMode);
     }
 
     /**
@@ -147,11 +147,11 @@ public class NumberUtil {
      * @param scale        小数保留位数
      * @param roundingMode 舍位模式
      * @return java.math.BigDecimal
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:33
      **/
-    public static BigDecimal amountFormat(String amount,int scale,RoundingMode roundingMode){
-        return new BigDecimal(String.valueOf(amount)).setScale(scale,roundingMode);
+    public static BigDecimal amountFormat(String amount, int scale, RoundingMode roundingMode) {
+        return new BigDecimal(String.valueOf(amount)).setScale(scale, roundingMode);
     }
 
     /**
@@ -159,10 +159,10 @@ public class NumberUtil {
      * @param number  数字
      * @param pattern 格式
      * @return java.lang.String
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:39
      **/
-    public static String format(double number,String pattern){
+    public static String format(double number, String pattern) {
         NumberFormat fmt = Tools.isNotEmpty(pattern) ? new DecimalFormat(pattern) : new DecimalFormat();
         return fmt.format(number);
     }
@@ -171,10 +171,10 @@ public class NumberUtil {
      * 格式化数字:整数不变，小数点保留两位
      * @param number 数字
      * @return java.lang.String
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:39
      **/
-    public static String format(double number){
+    public static String format(double number) {
         return new DecimalFormat(AMOUNT_PATTERN).format(number);
     }
 
@@ -183,10 +183,10 @@ public class NumberUtil {
      * @param number  数字
      * @param pattern 格式
      * @return java.lang.String
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:39
      **/
-    public static String format(int number,String pattern){
+    public static String format(int number, String pattern) {
         NumberFormat fmt = Tools.isNotEmpty(pattern) ? new DecimalFormat(pattern) : new DecimalFormat();
         return fmt.format(number);
     }
@@ -195,10 +195,10 @@ public class NumberUtil {
      * 格式化数字:整数不变，小数点保留两位
      * @param number 数字
      * @return java.lang.String
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:39
      **/
-    public static String format(int number){
+    public static String format(int number) {
         return new DecimalFormat(AMOUNT_PATTERN).format(number);
     }
 
@@ -207,10 +207,10 @@ public class NumberUtil {
      * @param number  数字
      * @param pattern 格式
      * @return java.lang.String
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:39
      **/
-    public static String format(long number,String pattern){
+    public static String format(long number, String pattern) {
         NumberFormat fmt = Tools.isNotEmpty(pattern) ? new DecimalFormat(pattern) : new DecimalFormat();
         return fmt.format(number);
     }
@@ -219,10 +219,10 @@ public class NumberUtil {
      * 格式化数字:整数不变，小数点保留两位
      * @param number 数字
      * @return java.lang.String
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 14:39
      **/
-    public static String format(long number){
+    public static String format(long number) {
         return new DecimalFormat(AMOUNT_PATTERN).format(number);
     }
 

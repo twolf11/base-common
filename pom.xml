@@ -7,7 +7,7 @@
     <groupId>com.twolf.common</groupId>
     <artifactId>base-common</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.2</version>
+    <version>1.0.4-gf</version>
     <modules>
         <module>common-core</module>
         <module>common-orm</module>
@@ -17,7 +17,7 @@
     <description>base project</description>
 
     <properties>
-        <revision>1.0.2</revision>
+        <revision>1.0.4-gf</revision>
         <!-- JDK版本 -->
         <!-- 自定义的参数 -->
         <java.version>17</java.version>
@@ -36,12 +36,13 @@
         <project.reptorting.outputEncording>${encoding}</project.reptorting.outputEncording>
         <argLine>-Dfile.encording=${encoding}</argLine>
         <!-- springboot和cloud依赖 -->
-        <boot.version>3.2.0</boot.version>
-        <cloud.version>2023.0.0</cloud.version>
-        <alibaba.cloud.version>2022.0.0.0</alibaba.cloud.version>
-        <graceful-response.version>3.5.2-boot3</graceful-response.version>
+        <boot.version>3.3.5</boot.version>
+        <cloud.version>2023.0.3</cloud.version>
+        <alibaba.cloud.version>2023.0.1.2</alibaba.cloud.version>
+        <graceful-response.version>5.0.4-boot3</graceful-response.version>
+        <hutool.version>5.8.33</hutool.version>
+        <mybatis-plus.version>3.5.9</mybatis-plus.version>
     </properties>
-
 
     <dependencyManagement>
         <dependencies>
@@ -88,7 +89,21 @@
                 <artifactId>graceful-response</artifactId>
                 <version>${graceful-response.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-bom</artifactId>
+                <version>${hutool.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- 父依赖包 end -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-bom</artifactId>
+                <version>${mybatis-plus.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -96,12 +111,12 @@
         <repository>
             <id>nexus-release</id>
             <name>nexus releases</name>
-            <url>http://192.168.1.22:8081/repository/my-release/</url>
+            <url>http://storehouse.twolf.com:8081/repository/my-release/</url>
         </repository>
         <snapshotRepository>
             <id>nexus-snapshots</id>
             <name>nexus snapshots</name>
-            <url>http://192.168.1.22:8081/repository/my-snapshots/</url>
+            <url>http://storehouse.twolf.com:8081/repository/my-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 

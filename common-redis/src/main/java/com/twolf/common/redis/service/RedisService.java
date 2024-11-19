@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * redis工具类
- * @Author lcy
+ * @Author twolf
  * @Date 2021/4/12 18:07
  */
 @Component
@@ -32,7 +32,7 @@ public class RedisService {
      * @param key   key
      * @param value value
      * @return boolean
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K,V> boolean set(K key,V value){
@@ -47,7 +47,7 @@ public class RedisService {
      * @param expire   过期时间
      * @param timeUnit 时间单位
      * @return boolean
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K,V> boolean set(K key,V value,long expire,TimeUnit timeUnit){
@@ -61,7 +61,7 @@ public class RedisService {
      * @param value  value
      * @param expire 过期时间
      * @return boolean
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K,V> boolean set(K key,V value,long expire){
@@ -75,7 +75,7 @@ public class RedisService {
      * @param expire   过期时间
      * @param timeUnit 时间单位
      * @return boolean
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K,V> boolean setIfAbsent(K key,V value,long expire,TimeUnit timeUnit){
@@ -86,7 +86,7 @@ public class RedisService {
      * 获取缓存信息
      * @param key key
      * @return V
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K,V> V get(K key){
@@ -100,7 +100,7 @@ public class RedisService {
      * @param expire   过期时间
      * @param timeUnit 时间单位
      * @return boolean
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K> boolean expire(K key,long expire,TimeUnit timeUnit){
@@ -111,7 +111,7 @@ public class RedisService {
      * 获取key的过期时间 默认单位：秒。-2表示不存在，-1表示永久，正数为正常时间。如果获取失败默认返回-2
      * @param key key
      * @return Long
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K> Long getExpire(K key){
@@ -122,7 +122,7 @@ public class RedisService {
      * 根据时间单位，获取key的过期时间 获取key的过期时间。 -2表示不存在，-1表示永久，正数为正常时间。如果获取失败默认返回-2
      * @param key key
      * @return Long
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K> Long getExpire(K key,TimeUnit timeUnit){
@@ -133,7 +133,7 @@ public class RedisService {
      * 删除缓存信息
      * @param key key
      * @return boolean
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K> boolean delete(K key){
@@ -146,7 +146,7 @@ public class RedisService {
      * 如果值包含错误的类型，或字符串类型的值不能表示为数字，那么返回一个错误。
      * @param key key
      * @return Long
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K> Long increment(K key){
@@ -158,7 +158,7 @@ public class RedisService {
      * @param key       key
      * @param increment 增量
      * @return Long
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K> Long increment(K key,long increment){
@@ -170,7 +170,7 @@ public class RedisService {
      * @param key       key
      * @param increment 增量
      * @return Double
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K> Double increment(K key,double increment){
@@ -183,7 +183,7 @@ public class RedisService {
      * 如果值包含错误的类型，或字符串类型的值不能表示为数字，那么返回一个错误。
      * @param key key
      * @return Long
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K> Long decrement(K key){
@@ -195,7 +195,7 @@ public class RedisService {
      * @param key       key
      * @param increment 指定数值-减量
      * @return Long
-     * @author lcy
+     * @author twolf
      * @date 2019/11/1 19:50
      **/
     public <K> Long decrement(K key,long increment){
@@ -207,7 +207,7 @@ public class RedisService {
      * @param key     redis key
      * @param hashKey hashKey
      * @return boolean
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 12:35
      **/
     public <K,HK> boolean setForHash(K key,HK hashKey){
@@ -221,7 +221,7 @@ public class RedisService {
      * @param hashKey hashKey
      * @param value   value
      * @return boolean
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 12:35
      **/
     public <K,HK,HV> boolean setForHash(K key,HK hashKey,HV value){
@@ -234,7 +234,7 @@ public class RedisService {
      * @param key     redis key
      * @param hashKey hashKey
      * @return java.lang.Object
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 12:34
      **/
     public <K,HK,HV> HV getForHash(K key,HK hashKey){
@@ -247,7 +247,7 @@ public class RedisService {
      * @param key     redis key
      * @param hashKey hashKey
      * @return java.lang.long
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 12:34
      **/
     public <K,HK> long deleteForHash(K key,HK... hashKey){
@@ -258,7 +258,7 @@ public class RedisService {
      * 根据redis key获取hash所有值
      * @param key key
      * @return java.util.Map<java.lang.Object,java.lang.Object>
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 12:33
      **/
     public <K,HK,HV> Map<HK,HV> getForHashEntries(K key){
@@ -270,7 +270,7 @@ public class RedisService {
      * @param key   redis key
      * @param value value
      * @return java.lang.long
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 12:34
      **/
     public <K,V> long setForSet(K key,V... value){
@@ -282,7 +282,7 @@ public class RedisService {
      * @param key   redis key
      * @param value value
      * @return java.lang.boolean
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 12:34
      **/
     public <K,V> boolean checkInSet(K key,V value){
@@ -293,7 +293,7 @@ public class RedisService {
      * 根据key获取set集合全部内容
      * @param key key
      * @return java.util.Set<V>
-     * @author lcy
+     * @author twolf
      * @date 2021/5/17 11:55
      **/
     public <K,V> Set<V> getForSet(K key){
@@ -304,7 +304,7 @@ public class RedisService {
      * 根据key获取集合数据条数
      * @param key key
      * @return long
-     * @author lcy
+     * @author twolf
      * @date 2021/5/17 11:56
      **/
     public <K> long getSizeForSet(K key){
@@ -316,7 +316,7 @@ public class RedisService {
      * @param key    key
      * @param values values
      * @return long
-     * @author lcy
+     * @author twolf
      * @date 2021/4/20 12:33
      **/
     public <K,V> long removeFromSet(K key,V... values){
@@ -327,7 +327,7 @@ public class RedisService {
      * 根据key获取list集合里的大小
      * @param key key
      * @return java.lang.Long
-     * @author lcy
+     * @author twolf
      * @date 2021/4/21 10:54
      **/
     public <K> Long getListSize(K key){
@@ -339,7 +339,7 @@ public class RedisService {
      * @param key   key
      * @param value value
      * @return java.lang.Long
-     * @author lcy
+     * @author twolf
      * @date 2021/4/21 11:13
      **/
     public <K,V> Long leftPush(K key,V value){
@@ -352,7 +352,7 @@ public class RedisService {
      * @param pivot 参考值
      * @param value value
      * @return Long 当前集合size
-     * @author lcy
+     * @author twolf
      * @date 2021/4/21 10:59
      **/
     public <K,V> Long leftPush(K key,V pivot,V value){
@@ -366,7 +366,7 @@ public class RedisService {
      * @param key    key
      * @param values values--集合数据
      * @return java.lang.Long
-     * @author lcy
+     * @author twolf
      * @date 2021/4/21 11:13
      **/
     public <K,V> Long leftPushAll(K key,Collection<V> values){
@@ -378,7 +378,7 @@ public class RedisService {
      * @param key   key
      * @param value value
      * @return java.lang.Long
-     * @author lcy
+     * @author twolf
      * @date 2021/4/21 11:13
      **/
     public <K,V> Long rightPush(K key,V value){
@@ -391,7 +391,7 @@ public class RedisService {
      * @param pivot 参考值
      * @param value value
      * @return Long 当前集合size
-     * @author lcy
+     * @author twolf
      * @date 2021/4/21 10:59
      **/
     public <K,V> Long rightPush(K key,V pivot,V value){
@@ -405,7 +405,7 @@ public class RedisService {
      * @param key    key
      * @param values values--集合数据
      * @return java.lang.Long
-     * @author lcy
+     * @author twolf
      * @date 2021/4/21 11:13
      **/
     public <K,V> Long rightPushAll(K key,Collection<V> values){
@@ -416,7 +416,7 @@ public class RedisService {
      * 从集合的最左边（前面）当中取出元素
      * @param key key
      * @return V
-     * @author lcy
+     * @author twolf
      * @date 2021/4/21 12:29
      **/
     public <K,V> V leftPop(K key){
@@ -428,7 +428,7 @@ public class RedisService {
      * 从集合的最右边（后面）当中取出元素
      * @param key key
      * @return V
-     * @author lcy
+     * @author twolf
      * @date 2021/4/21 12:29
      **/
     public <K,V> V rightPop(K key){
@@ -440,7 +440,7 @@ public class RedisService {
      * 根据key获取集合数据--因为先查找范围才返回数据，是两个操作，不能保证数据完全准确性，如需要保证数据完整需要通过lua脚本
      * @param key key
      * @return java.util.List<V>
-     * @author lcy
+     * @author twolf
      * @date 2021/4/21 11:28
      **/
     public <K,V> List<V> getForList(K key){
@@ -454,7 +454,7 @@ public class RedisService {
      * @param start 开始下标
      * @param end   结束下标
      * @return java.util.List<V>
-     * @author lcy
+     * @author twolf
      * @date 2021/4/21 11:29
      **/
     public <K,V> List<V> getForList(K key,long start,long end){
@@ -466,7 +466,7 @@ public class RedisService {
      * @param key   key
      * @param index 下标
      * @return V
-     * @author lcy
+     * @author twolf
      * @date 2021/4/21 11:30
      **/
     public <K,V> V index(K key,long index){

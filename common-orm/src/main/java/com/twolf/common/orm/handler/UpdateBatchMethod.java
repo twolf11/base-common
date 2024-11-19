@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * 批量更新方法实现，条件为主键，选择性更新
- * @Author lcy
+ * @Author twolf
  * @Date 2022/5/23 18:13
  */
 @Slf4j

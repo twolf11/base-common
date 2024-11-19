@@ -1,18 +1,15 @@
 package com.twolf.common.orm.handler;
 
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import org.apache.ibatis.reflection.MetaObject;
+
 import java.time.LocalDateTime;
 
-import org.apache.ibatis.reflection.MetaObject;
-import org.springframework.stereotype.Component;
-
-import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-
 /**
- * 公共数据切面--这里只做参考，实际情况需要自行定义或者手动注入
- * @Author lcy
+ * 公共数据切面，如果需要再手动引入配置
+ * @Author twolf
  * @Date 2021/5/14 14:14
  */
-@Component
 public class BaseObjectHandler implements MetaObjectHandler {
 
     /**
@@ -38,7 +35,7 @@ public class BaseObjectHandler implements MetaObjectHandler {
     /**
      * 删除标记
      */
-    private static final String IS_DELETE = "is_delete";
+    private static final String IS_DELETE = "isDelete";
 
     /**
      * 版本号
@@ -49,23 +46,23 @@ public class BaseObjectHandler implements MetaObjectHandler {
      * 新增
      */
     @Override
-    public void insertFill(MetaObject metaObject){
+    public void insertFill(MetaObject metaObject) {
         //3.3.3以后的版本使用strictInsertFill，之前使用setFieldValByName
         //实际项目通过jwt获取
-        this.strictInsertFill(metaObject,CREATE_USER,() -> null,String.class);
+        this.strictInsertFill(metaObject, CREATE_USER, () -> null, String.class);
         // 创建时间
-        this.strictInsertFill(metaObject,CREATE_TIME,LocalDateTime :: now,LocalDateTime.class);
+        this.strictInsertFill(metaObject, CREATE_TIME, LocalDateTime::now, LocalDateTime.class);
         // 删除标记
-        this.strictInsertFill(metaObject,IS_DELETE,() -> 0,Integer.class);
+        this.strictInsertFill(metaObject, IS_DELETE, () -> 0, Integer.class);
         // 版本号
-        this.strictInsertFill(metaObject,VERSION,() -> 0L,Long.class);
+        this.strictInsertFill(metaObject, VERSION, () -> 0L, Long.class);
     }
 
     @Override
-    public void updateFill(MetaObject metaObject){
+    public void updateFill(MetaObject metaObject) {
         //实际项目通过jwt获取
-        this.strictUpdateFill(metaObject,UPDATE_USER,() -> null,String.class);
+        this.setFieldValByName(UPDATE_USER, null, metaObject);
         // 创建时间
-        this.strictUpdateFill(metaObject,UPDATE_TIME,LocalDateTime :: now,LocalDateTime.class);
+        this.setFieldValByName(UPDATE_TIME, LocalDateTime.now(), metaObject);
     }
 }

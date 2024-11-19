@@ -1,15 +1,15 @@
 package com.twolf.common.core.data;
 
-import java.io.Serializable;
-import java.util.regex.Pattern;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.util.regex.Pattern;
+
 /**
  * 分页字段
- * @Author lcy
+ * @Author twolf
  * @Date 2021/4/13 17:59
  */
 @Data
@@ -32,14 +32,14 @@ public class OrderInfo implements Serializable {
     @JsonIgnore
     protected boolean asc;
 
-    public OrderInfo(){
+    public OrderInfo() {
     }
 
-    public OrderInfo(String column){
-        this(column,"asc");
+    public OrderInfo(String column) {
+        this(column, "asc");
     }
 
-    public OrderInfo(String column,String orderType){
+    public OrderInfo(String column, String orderType) {
         this.column = column;
         if (SQL_PATTERN.matcher(column).find()) {
             throw new SecurityException("包含非法字符");
@@ -48,7 +48,7 @@ public class OrderInfo implements Serializable {
         this.asc = "asc".equals(orderType);
     }
 
-    public OrderInfo setColumn(String column){
+    public OrderInfo setColumn(String column) {
         if (SQL_PATTERN.matcher(column).find()) {
             throw new SecurityException("包含非法字符");
         }
@@ -56,7 +56,7 @@ public class OrderInfo implements Serializable {
         return this;
     }
 
-    public boolean isAsc(){
+    public boolean isAsc() {
         return "asc".equals(orderType);
     }
 }

@@ -5,7 +5,7 @@
     <parent>
         <artifactId>base-common</artifactId>
         <groupId>com.twolf.common</groupId>
-        <version>1.0.2</version>
+        <version>1.0.4-gf</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,11 +13,9 @@
     <artifactId>common-orm</artifactId>
 
     <properties>
-        <mysql-conncetor.version>8.1.0</mysql-conncetor.version>
-        <mybatis-plus.version>3.5.3.2</mybatis-plus.version>
-        <freemarker.version>2.3.31</freemarker.version>
-        <velocity-engine-core.version>2.3</velocity-engine-core.version>
+        <mysql-conncetor.version>9.1.0</mysql-conncetor.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.twolf.common</groupId>
@@ -31,8 +29,11 @@
         <!-- mybatis-plus -->
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${mybatis-plus.version}</version>
+            <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-jsqlparser</artifactId>
         </dependency>
     </dependencies>
 

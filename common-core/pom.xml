@@ -5,7 +5,7 @@
     <parent>
         <artifactId>base-common</artifactId>
         <groupId>com.twolf.common</groupId>
-        <version>1.0.2</version>
+        <version>1.0.4-gf</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,27 +13,27 @@
     <artifactId>common-core</artifactId>
 
     <properties>
-        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
         <hutool.version>5.8.21</hutool.version>
-        <knife4j.version>4.3.0</knife4j.version>
-        <lombok.version>1.18.28</lombok.version>
+        <knife4j.version>4.5.0</knife4j.version>
+        <lombok.version>1.18.34</lombok.version>
+        <fastjson2.version>2.0.53</fastjson2.version>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson2.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
-        <!--json依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-json</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.feiniaojin</groupId>
             <artifactId>graceful-response</artifactId>
-        </dependency>
-        <!-- commons工具依赖包 -->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>${hutool.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

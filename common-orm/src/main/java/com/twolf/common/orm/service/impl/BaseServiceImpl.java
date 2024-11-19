@@ -15,7 +15,7 @@ import com.twolf.common.orm.service.BaseService;
 
 /**
  * 基础service实现
- * @Author lcy
+ * @Author twolf
  * @Date 2023/9/15 15:34
  */
 public class BaseServiceImpl<M extends BaseMapper<T>,T> extends ServiceImpl<M,T> implements BaseService<T> {

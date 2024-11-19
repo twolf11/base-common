@@ -7,7 +7,7 @@ import com.twolf.common.core.data.Page;
 
 /**
  * 基础service实现
- * @Author lcy
+ * @Author twolf
  * @Date 2023/9/15 15:33
  */
 public interface BaseService<T> extends IService<T> {
