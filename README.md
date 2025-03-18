@@ -2,10 +2,11 @@
 
 #### 介绍
 
-项目是私人写的一个基础的脚手架，里面有一些平时常用的工具类，包括hutool依赖，还引入系统常见的插件框架mybatis-plus、springdoc、redis等，利于项目的快速开发;
-1、封装了基础的springboot项目核心模块core
-2、封装了mybatis-plus的常用操作，包括基础service的分页，批量插入等
-3、封装了redis的常用操作工具类
+项目是私人写的一个基础的脚手架，里面有一些平时常用的工具类，包括hutool依赖，还引入系统常见的插件框架mybatis-plus、springdoc、redis等，利于项目的快速开发
+
+1. 封装了基础的springboot项目核心模块core
+2. 封装了mybatis-plus的常用操作，包括基础service的分页，批量插入等
+3. 封装了redis的常用操作工具类
 
 另外如果需要引入graceful-response，在引入core核心的同时，需要引入graceful-response的依赖即可，如下：
 引入graceful-response依赖：
@@ -17,12 +18,11 @@
 ```
 引入graceful-response依赖后，graceful-response的配置文件改成`graceful-response.response-style=1`,则完全适配父依赖
 
-
 #### 软件架构
 
-1、springboot 3.x版本
-2、mybatis-plus 3.5.x版本
-3、graceful-response 5.x-boot3版本
+1. springboot 3.x版本
+2. mybatis-plus 3.5.x版本
+3. graceful-response 5.x-boot3版本
 
 #### 使用说明
 
