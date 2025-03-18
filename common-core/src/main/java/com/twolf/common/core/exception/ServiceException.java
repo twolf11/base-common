@@ -1,31 +1,34 @@
 package com.twolf.common.core.exception;
 
-import com.feiniaojin.gracefulresponse.api.ExceptionMapper;
+import com.twolf.common.core.data.ResultCode;
+import lombok.Getter;
 
 /**
- * 自定义异常-http状态500
- * @Author twolf
+ * 自定义服务异常
+ * @Author lcy
  * @Date 2020/12/7 14:20
  */
-@ExceptionMapper(code = "500", msg = "系统异常", msgReplaceable = true)
+@Getter
 public class ServiceException extends RuntimeException {
 
-    public ServiceException() {
-    }
+    /**
+     * 响应码
+     */
+    private Integer code;
 
     public ServiceException(String message) {
         super(message);
+        this.code = 500;
     }
 
-    public ServiceException(String message, Throwable cause) {
-        super(message, cause);
+    public ServiceException(Integer code, String message) {
+        super(message);
+        this.code = code;
     }
 
-    public ServiceException(Throwable cause) {
-        super(cause);
+    public ServiceException(ResultCode resultCode) {
+        super(resultCode.getMessage());
+        this.code = resultCode.getCode();
     }
 
-    public ServiceException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
 }

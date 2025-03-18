@@ -7,7 +7,7 @@
     <groupId>com.twolf.common</groupId>
     <artifactId>base-common</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.4-gr</version>
+    <version>1.0.6</version>
     <modules>
         <module>common-core</module>
         <module>common-orm</module>
@@ -17,10 +17,10 @@
     <description>base project</description>
 
     <properties>
-        <revision>1.0.4-gr</revision>
+        <revision>1.0.6</revision>
         <!-- JDK版本 -->
         <!-- 自定义的参数 -->
-        <java.version>17</java.version>
+        <java.version>21</java.version>
         <!-- 编码格式utf-8 -->
         <encoding>utf-8</encoding>
         <!-- maven内置的参数 -->
@@ -36,12 +36,12 @@
         <project.reptorting.outputEncording>${encoding}</project.reptorting.outputEncording>
         <argLine>-Dfile.encording=${encoding}</argLine>
         <!-- springboot和cloud依赖 -->
-        <boot.version>3.3.5</boot.version>
-        <cloud.version>2023.0.3</cloud.version>
-        <alibaba.cloud.version>2023.0.1.2</alibaba.cloud.version>
+        <boot.version>3.4.3</boot.version>
+        <cloud.version>2024.0.0</cloud.version>
+        <alibaba.cloud.version>2023.0.3.2</alibaba.cloud.version>
         <graceful-response.version>5.0.4-boot3</graceful-response.version>
-        <hutool.version>5.8.33</hutool.version>
-        <mybatis-plus.version>3.5.9</mybatis-plus.version>
+        <hutool.version>5.8.36</hutool.version>
+        <mybatis-plus.version>3.5.10.1</mybatis-plus.version>
     </properties>
 
     <dependencyManagement>
@@ -53,12 +53,12 @@
             </dependency>
             <dependency>
                 <groupId>com.twolf.common</groupId>
-                <artifactId>common-redis</artifactId>
+                <artifactId>common-orm</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.twolf.common</groupId>
-                <artifactId>common-orm</artifactId>
+                <artifactId>common-redis</artifactId>
                 <version>${revision}</version>
             </dependency>
             <!--spring boot依赖包-->
@@ -85,11 +85,6 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>com.feiniaojin</groupId>
-                <artifactId>graceful-response</artifactId>
-                <version>${graceful-response.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-bom</artifactId>
                 <version>${hutool.version}</version>
@@ -103,6 +98,11 @@
                 <version>${mybatis-plus.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.feiniaojin</groupId>
+                <artifactId>graceful-response</artifactId>
+                <version>${graceful-response.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

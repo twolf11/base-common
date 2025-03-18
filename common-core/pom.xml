@@ -5,7 +5,7 @@
     <parent>
         <artifactId>base-common</artifactId>
         <groupId>com.twolf.common</groupId>
-        <version>1.0.4-gr</version>
+        <version>1.0.6</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -32,8 +32,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.feiniaojin</groupId>
-            <artifactId>graceful-response</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

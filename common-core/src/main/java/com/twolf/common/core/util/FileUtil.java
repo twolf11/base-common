@@ -8,7 +8,6 @@ import java.nio.charset.Charset;
 
 /**
  * 文件工具类
- *
  * @Author twolf
  * @Date 2021/4/25 15:13
  */
@@ -18,7 +17,6 @@ public class FileUtil {
 
     /**
      * 获取字符的接口
-     *
      * @Author twolf
      * @Date 2021/4/25 15:13
      */
@@ -26,7 +24,6 @@ public class FileUtil {
 
         /**
          * 获取字符的方法
-         *
          * @param bytes 文件字节数组
          * @return java.lang.String
          * @author twolf
@@ -37,7 +34,6 @@ public class FileUtil {
 
     /**
      * 根据文件路径，并且指定字符编码通过二进制字节流读取文件
-     *
      * @param filePath 文件路径
      * @param charsets 字符编码
      * @return java.lang.String
@@ -50,7 +46,6 @@ public class FileUtil {
 
     /**
      * 根据文件路径通过二进制字节流读取文件
-     *
      * @param filePath 文件路径
      * @return java.lang.String
      * @author twolf
@@ -62,7 +57,6 @@ public class FileUtil {
 
     /**
      * 指定字符集通过二进制字节流读取文件
-     *
      * @param file     文件
      * @param charsets 字符编码
      * @return java.lang.String
@@ -89,7 +83,6 @@ public class FileUtil {
 
     /**
      * 通过二进制字节流读取文件
-     *
      * @param file 文件
      * @return java.lang.String
      * @author twolf
@@ -115,7 +108,6 @@ public class FileUtil {
 
     /**
      * 通过二进制字节流，指定字符编码读取指定输入流
-     *
      * @param inputStream 二进制流
      * @param charsets    字符编码
      * @return java.lang.String
@@ -128,7 +120,6 @@ public class FileUtil {
 
     /**
      * 通过二进制字节流，读取指定输入流
-     *
      * @param inputStream 二进制流
      * @return java.lang.String
      * @author twolf
@@ -140,7 +131,6 @@ public class FileUtil {
 
     /**
      * 通过二进制字节流，读取指定输入流
-     *
      * @param inputStream     二进制流
      * @param stringInterface 获取指定类型的String
      * @return java.lang.String
@@ -174,7 +164,6 @@ public class FileUtil {
 
     /**
      * 通过字符流，读取指定文件路径
-     *
      * @param filePath 文件路径
      * @return java.lang.String
      * @author twolf
@@ -186,7 +175,6 @@ public class FileUtil {
 
     /**
      * 通过字符流，读取指定文件
-     *
      * @param file 文件
      * @return java.lang.String
      * @author twolf
@@ -212,7 +200,6 @@ public class FileUtil {
 
     /**
      * 通过字符流，读取指定文件流
-     *
      * @param inputStream 文件流
      * @return java.lang.String
      * @author twolf
@@ -244,7 +231,6 @@ public class FileUtil {
 
     /**
      * 写入文件
-     *
      * @param filePath    文件路径
      * @param writeString 需要写入字符串
      * @param append      是否往后追加，false为覆盖
@@ -258,7 +244,6 @@ public class FileUtil {
 
     /**
      * 写入文件如果原来的文件已经存在则写入
-     *
      * @param filePath    文件路径
      * @param writeString 需要写入字符串
      * @return boolean
@@ -271,7 +256,6 @@ public class FileUtil {
 
     /**
      * 写入文件
-     *
      * @param file        文件
      * @param writeString 字符串
      * @param append      是否追加
@@ -301,7 +285,6 @@ public class FileUtil {
 
     /**
      * 写入流
-     *
      * @param outputStream 写入流
      * @param writeString  字符串
      * @return boolean
@@ -330,7 +313,6 @@ public class FileUtil {
 
     /**
      * 写入文件
-     *
      * @param filePath    文件路径
      * @param writeString 需要写入字符串
      * @param append      是否往后追加，false为覆盖
@@ -344,7 +326,6 @@ public class FileUtil {
 
     /**
      * 写入文件如果原来的文件已经存在则写入
-     *
      * @param filePath    文件路径
      * @param writeString 需要写入字符串
      * @return boolean
@@ -357,7 +338,6 @@ public class FileUtil {
 
     /**
      * 写入文件
-     *
      * @param file        文件
      * @param writeString 字符串
      * @param append      是否追加

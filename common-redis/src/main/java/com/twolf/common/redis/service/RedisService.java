@@ -1,13 +1,5 @@
 package com.twolf.common.redis.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.ListOperations;
@@ -15,13 +7,16 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+
 /**
  * redis工具类
  * @Author twolf
  * @Date 2021/4/12 18:07
  */
 @Component
-@SuppressWarnings(value = {"unchecked","rawtypes"})
+@SuppressWarnings(value = {"unchecked", "rawtypes"})
 public class RedisService {
 
     @Autowired
@@ -35,8 +30,8 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K,V> boolean set(K key,V value){
-        redisTemplate.opsForValue().set(key,value);
+    public <K, V> boolean set(K key, V value) {
+        redisTemplate.opsForValue().set(key, value);
         return true;
     }
 
@@ -50,8 +45,8 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K,V> boolean set(K key,V value,long expire,TimeUnit timeUnit){
-        redisTemplate.opsForValue().set(key,value,expire,timeUnit);
+    public <K, V> boolean set(K key, V value, long expire, TimeUnit timeUnit) {
+        redisTemplate.opsForValue().set(key, value, expire, timeUnit);
         return true;
     }
 
@@ -64,8 +59,8 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K,V> boolean set(K key,V value,long expire){
-        return set(key,value,expire,TimeUnit.SECONDS);
+    public <K, V> boolean set(K key, V value, long expire) {
+        return set(key, value, expire, TimeUnit.SECONDS);
     }
 
     /**
@@ -78,8 +73,8 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K,V> boolean setIfAbsent(K key,V value,long expire,TimeUnit timeUnit){
-        return Optional.ofNullable(redisTemplate.opsForValue().setIfAbsent(key,value,expire,timeUnit)).orElse(false);
+    public <K, V> boolean setIfAbsent(K key, V value, long expire, TimeUnit timeUnit) {
+        return Optional.ofNullable(redisTemplate.opsForValue().setIfAbsent(key, value, expire, timeUnit)).orElse(false);
     }
 
     /**
@@ -89,8 +84,8 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K,V> V get(K key){
-        ValueOperations<K,V> valueOperations = redisTemplate.opsForValue();
+    public <K, V> V get(K key) {
+        ValueOperations<K, V> valueOperations = redisTemplate.opsForValue();
         return valueOperations.get(key);
     }
 
@@ -103,8 +98,8 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K> boolean expire(K key,long expire,TimeUnit timeUnit){
-        return Optional.ofNullable(redisTemplate.expire(key,expire,timeUnit)).orElse(false);
+    public <K> boolean expire(K key, long expire, TimeUnit timeUnit) {
+        return redisTemplate.expire(key, expire, timeUnit);
     }
 
     /**
@@ -114,7 +109,7 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K> Long getExpire(K key){
+    public <K> Long getExpire(K key) {
         return redisTemplate.getExpire(key);
     }
 
@@ -125,8 +120,8 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K> Long getExpire(K key,TimeUnit timeUnit){
-        return redisTemplate.getExpire(key,timeUnit);
+    public <K> Long getExpire(K key, TimeUnit timeUnit) {
+        return redisTemplate.getExpire(key, timeUnit);
     }
 
     /**
@@ -136,8 +131,8 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K> boolean delete(K key){
-        return Optional.ofNullable(redisTemplate.delete(key)).orElse(false);
+    public <K> boolean delete(K key) {
+        return redisTemplate.delete(key);
     }
 
     /**
@@ -149,7 +144,7 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K> Long increment(K key){
+    public <K> Long increment(K key) {
         return redisTemplate.opsForValue().increment(key);
     }
 
@@ -161,8 +156,8 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K> Long increment(K key,long increment){
-        return redisTemplate.opsForValue().increment(key,increment);
+    public <K> Long increment(K key, long increment) {
+        return redisTemplate.opsForValue().increment(key, increment);
     }
 
     /**
@@ -173,8 +168,8 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K> Double increment(K key,double increment){
-        return redisTemplate.opsForValue().increment(key,increment);
+    public <K> Double increment(K key, double increment) {
+        return redisTemplate.opsForValue().increment(key, increment);
     }
 
     /**
@@ -186,7 +181,7 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K> Long decrement(K key){
+    public <K> Long decrement(K key) {
         return redisTemplate.opsForValue().decrement(key);
     }
 
@@ -198,8 +193,8 @@ public class RedisService {
      * @author twolf
      * @date 2019/11/1 19:50
      **/
-    public <K> Long decrement(K key,long increment){
-        return redisTemplate.opsForValue().decrement(key,increment);
+    public <K> Long decrement(K key, long increment) {
+        return redisTemplate.opsForValue().decrement(key, increment);
     }
 
     /**
@@ -210,8 +205,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/20 12:35
      **/
-    public <K,HK> boolean setForHash(K key,HK hashKey){
-        redisTemplate.opsForHash().put(key,hashKey,hashKey);
+    public <K, HK> boolean setForHash(K key, HK hashKey) {
+        redisTemplate.opsForHash().put(key, hashKey, hashKey);
         return true;
     }
 
@@ -224,8 +219,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/20 12:35
      **/
-    public <K,HK,HV> boolean setForHash(K key,HK hashKey,HV value){
-        redisTemplate.opsForHash().put(key,hashKey,value);
+    public <K, HK, HV> boolean setForHash(K key, HK hashKey, HV value) {
+        redisTemplate.opsForHash().put(key, hashKey, value);
         return true;
     }
 
@@ -237,9 +232,9 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/20 12:34
      **/
-    public <K,HK,HV> HV getForHash(K key,HK hashKey){
-        HashOperations<K,HK,HV> hashOperations = redisTemplate.opsForHash();
-        return hashOperations.get(key,hashKey);
+    public <K, HK, HV> HV getForHash(K key, HK hashKey) {
+        HashOperations<K, HK, HV> hashOperations = redisTemplate.opsForHash();
+        return hashOperations.get(key, hashKey);
     }
 
     /**
@@ -250,18 +245,18 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/20 12:34
      **/
-    public <K,HK> long deleteForHash(K key,HK... hashKey){
-        return redisTemplate.opsForHash().delete(key,hashKey);
+    public <K> long deleteForHash(K key, Object... hashKey) {
+        return redisTemplate.opsForHash().delete(key, hashKey);
     }
 
     /**
      * 根据redis key获取hash所有值
      * @param key key
-     * @return java.util.Map<java.lang.Object,java.lang.Object>
+     * @return java.util.Map<java.lang.Object, java.lang.Object>
      * @author twolf
      * @date 2021/4/20 12:33
      **/
-    public <K,HK,HV> Map<HK,HV> getForHashEntries(K key){
+    public <K, HK, HV> Map<HK, HV> getForHashEntries(K key) {
         return redisTemplate.opsForHash().entries(key);
     }
 
@@ -273,8 +268,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/20 12:34
      **/
-    public <K,V> long setForSet(K key,V... value){
-        return Optional.ofNullable(redisTemplate.opsForSet().add(key,value)).orElse(0L);
+    public <K, V> long setForSet(K key, V... value) {
+        return Optional.ofNullable(redisTemplate.opsForSet().add(key, value)).orElse(0L);
     }
 
     /**
@@ -285,8 +280,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/20 12:34
      **/
-    public <K,V> boolean checkInSet(K key,V value){
-        return Optional.ofNullable(redisTemplate.opsForSet().isMember(key,value)).orElse(false);
+    public <K, V> boolean checkInSet(K key, V value) {
+        return Optional.ofNullable(redisTemplate.opsForSet().isMember(key, value)).orElse(false);
     }
 
     /**
@@ -296,7 +291,7 @@ public class RedisService {
      * @author twolf
      * @date 2021/5/17 11:55
      **/
-    public <K,V> Set<V> getForSet(K key){
+    public <K, V> Set<V> getForSet(K key) {
         return redisTemplate.opsForSet().members(key);
     }
 
@@ -307,7 +302,7 @@ public class RedisService {
      * @author twolf
      * @date 2021/5/17 11:56
      **/
-    public <K> long getSizeForSet(K key){
+    public <K> long getSizeForSet(K key) {
         return Optional.ofNullable(redisTemplate.opsForSet().size(key)).orElse(0L);
     }
 
@@ -319,8 +314,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/20 12:33
      **/
-    public <K,V> long removeFromSet(K key,V... values){
-        return Optional.ofNullable(redisTemplate.opsForSet().remove(key,values)).orElse(0L);
+    public <K> long removeFromSet(K key, Object... values) {
+        return Optional.ofNullable(redisTemplate.opsForSet().remove(key, values)).orElse(0L);
     }
 
     /**
@@ -330,7 +325,7 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/21 10:54
      **/
-    public <K> Long getListSize(K key){
+    public <K> Long getListSize(K key) {
         return redisTemplate.opsForList().size(key);
     }
 
@@ -342,8 +337,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/21 11:13
      **/
-    public <K,V> Long leftPush(K key,V value){
-        return redisTemplate.opsForList().leftPush(key,value);
+    public <K, V> Long leftPush(K key, V value) {
+        return redisTemplate.opsForList().leftPush(key, value);
     }
 
     /**
@@ -355,8 +350,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/21 10:59
      **/
-    public <K,V> Long leftPush(K key,V pivot,V value){
-        return redisTemplate.opsForList().leftPush(key,pivot,value);
+    public <K, V> Long leftPush(K key, V pivot, V value) {
+        return redisTemplate.opsForList().leftPush(key, pivot, value);
     }
 
     /**
@@ -369,8 +364,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/21 11:13
      **/
-    public <K,V> Long leftPushAll(K key,Collection<V> values){
-        return redisTemplate.opsForList().leftPushAll(key,values);
+    public <K, V> Long leftPushAll(K key, Collection<V> values) {
+        return redisTemplate.opsForList().leftPushAll(key, values);
     }
 
     /**
@@ -381,8 +376,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/21 11:13
      **/
-    public <K,V> Long rightPush(K key,V value){
-        return redisTemplate.opsForList().rightPush(key,value);
+    public <K, V> Long rightPush(K key, V value) {
+        return redisTemplate.opsForList().rightPush(key, value);
     }
 
     /**
@@ -394,8 +389,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/21 10:59
      **/
-    public <K,V> Long rightPush(K key,V pivot,V value){
-        return redisTemplate.opsForList().leftPush(key,pivot,value);
+    public <K, V> Long rightPush(K key, V pivot, V value) {
+        return redisTemplate.opsForList().leftPush(key, pivot, value);
     }
 
     /**
@@ -408,8 +403,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/21 11:13
      **/
-    public <K,V> Long rightPushAll(K key,Collection<V> values){
-        return redisTemplate.opsForList().rightPushAll(key,values);
+    public <K, V> Long rightPushAll(K key, Collection<V> values) {
+        return redisTemplate.opsForList().rightPushAll(key, values);
     }
 
     /**
@@ -419,8 +414,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/21 12:29
      **/
-    public <K,V> V leftPop(K key){
-        ListOperations<K,V> listOperations = redisTemplate.opsForList();
+    public <K, V> V leftPop(K key) {
+        ListOperations<K, V> listOperations = redisTemplate.opsForList();
         return listOperations.leftPop(key);
     }
 
@@ -431,8 +426,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/21 12:29
      **/
-    public <K,V> V rightPop(K key){
-        ListOperations<K,V> listOperations = redisTemplate.opsForList();
+    public <K, V> V rightPop(K key) {
+        ListOperations<K, V> listOperations = redisTemplate.opsForList();
         return listOperations.rightPop(key);
     }
 
@@ -443,9 +438,9 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/21 11:28
      **/
-    public <K,V> List<V> getForList(K key){
+    public <K, V> List<V> getForList(K key) {
         Long size = getListSize(key);
-        return size == null || size == 0 ? new ArrayList<>() : getForList(key,0,size);
+        return size == null || size == 0 ? new ArrayList<>() : getForList(key, 0, size);
     }
 
     /**
@@ -457,8 +452,8 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/21 11:29
      **/
-    public <K,V> List<V> getForList(K key,long start,long end){
-        return redisTemplate.opsForList().range(key,start,end);
+    public <K, V> List<V> getForList(K key, long start, long end) {
+        return redisTemplate.opsForList().range(key, start, end);
     }
 
     /**
@@ -469,9 +464,9 @@ public class RedisService {
      * @author twolf
      * @date 2021/4/21 11:30
      **/
-    public <K,V> V index(K key,long index){
-        ListOperations<K,V> listOperations = redisTemplate.opsForList();
-        return listOperations.index(key,index);
+    public <K, V> V index(K key, long index) {
+        ListOperations<K, V> listOperations = redisTemplate.opsForList();
+        return listOperations.index(key, index);
     }
 
 }

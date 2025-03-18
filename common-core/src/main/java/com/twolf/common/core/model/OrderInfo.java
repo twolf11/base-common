@@ -1,4 +1,4 @@
-package com.twolf.common.core.data;
+package com.twolf.common.core.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;

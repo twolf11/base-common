@@ -170,7 +170,6 @@ public class Tools {
         return !isEmpty(cs);
     }
 
-
     /**
      * 判断对象是否不为空
      * @param object 对象

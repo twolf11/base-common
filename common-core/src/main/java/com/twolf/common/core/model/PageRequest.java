@@ -1,11 +1,11 @@
-package com.twolf.common.core.data;
-
-import java.io.Serializable;
-import java.util.List;
+package com.twolf.common.core.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * 分页字段
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Schema(description = "分页查询参数")
-public class Page<T> implements Serializable {
+public class PageRequest<T> implements Serializable {
 
     @Schema(description = "当前页,默认第一页", example = "1")
     protected int page = 1;
